@@ -1,0 +1,49 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{chat.name}}">
+  <ion-content class="padding">
+    <!-- <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+    <p>
+      {{chat.lastText}}
+    </p> -->
+
+    <div ng-show="connected">
+    <div class="log">{{number_message}}</div>
+    <div class="log">{{chat_message}}</div>
+    </div>
+    <div>
+        <ul>
+          <li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in messages" >
+            <!-- <span  ng-style="{color:message.color}" > : </span > -->
+            <div class="chat-messsage">
+              <div class="chat-bubble" ng-show="message.style" ng-class="message.current ? 'right' : 'left' ">
+      
+                          <div class="message">
+                            {{message.content}}
+                          </div>
+      
+                          <div class="message-detail">
+                              <span class="bold">{{ message.current ? 'You' : message.username }}</span>, 
+                              <span am-time-ago="message.date"></span>
+                          </div>
+      
+                      </div>
+                </div>
+          </li>
+        </ul>
+
+
+    </div>
+
+  </ion-content>
+  <ion-footer-bar align-title="left" >
+    <label class="item-input-wrapper">
+      <input type="search" placeholder="Message" class="transparent" ng-change="updateTyping()" ng-enter="sendMessage()" ng-model="message">
+    </label>
+    <a class="button button-icon icon ion-android-send"  ng-click="sendMessage()"></a>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view class="light"  view-title="Login">
+  	<ion-content>
+		<div class="list">
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Enter Full Name</span>
+		    <input type="text" placeholder="Full Name" ng-model="user.username">
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Enter Mobile Number</span>
+		    <input type="number" placeholder="Mobile" ng-model="user.mobile">
+		  </label>
+		</div>
+		<div class="button-bar bar-positive">
+			<a class="button" ng-click="login()">Login</a>
+			<a class="button" ng-click="redirect('/register')">Register</a>
+		</div>
+	</ion-content>
+</ion-view>
+
